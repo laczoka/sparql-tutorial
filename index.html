@@ -25,8 +25,8 @@
 
     <script type="text/javascript">
         var conn = new Stardog.Connection();
-        conn.setEndpoint("http://stardog/");
-        //conn.setEndpoint("http://localhost:5820/");
+        //conn.setEndpoint("http://stardog/");
+        conn.setEndpoint("/tools/sparql-tutorial/endpoint");
         conn.setReasoning("RDFS");
         conn.setCredentials("admin", "admin");
         var DB = "d1";
