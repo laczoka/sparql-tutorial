@@ -1,18 +1,9 @@
 <!--
     Copyright (C) 2013  László Török
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+    This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    See http://creativecommons.org/licenses/by-sa/3.0/deed.en_US
 -->
 <!DOCTYPE html>
 <html>
@@ -88,7 +79,7 @@
                                                     return "<td>".concat((b[v] && b[v].value) ? curie(b[v].value) : "<span class='unavailable'>N/A</span>", "</td>")
                                                 }).join("") + "</tr>"
                             }).join(""), "</tbody>");
-            var htmlTableFooter = "<tfoot><tr><td colspan='".concat(vars.length.toString(),"'>Returned ",(bs.length == 1) ? (((_.keys(bs[0])).length > 0) ? "1" : "0") : bs.length.toString(), " results.</td></tr></tfoot>");
+            var htmlTableFooter = "<tfoot><tr><td colspan='".concat(vars.length.toString(),"'><small>Returned ",(bs.length == 1) ? (((_.keys(bs[0])).length > 0) ? "1" : "0") : bs.length.toString(), " results.</small></td></tr></tfoot>");
 
             return "<table class='table'>".concat(htmlTableHeader, htmlTableBody, htmlTableFooter, "</table>");
         }
@@ -150,9 +141,32 @@
                     <div class="offset1 span8">
                         <h2 style="text-align: center">Sparql tutorial</h2>
                         <p style="height:260px;text-align: center">
-                            by<br>
+                            <br><br><br><br>
+                            by<br><br>
                             <a href="http://www.unibw.de/ebusiness/team/laszlo-toeroek">László Török</a>
                         </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="row">
+                    <div class="offset1 span8">
+                        <h2>Before we begin</h2>
+                        <p>This tutorial uses ontologies from the <a href="http://purl.org/opdm">OPDM Project</a>.</p>
+                        <form><textarea id="code-textbox0" name="code">
+# Click on the "Execute" button to see what data
+# is currently available for the tutorial
+SELECT ?title
+WHERE {
+
+    ?ontology a owl:Ontology.
+    ?ontology rdfs:label ?title.
+
+}
+                        </textarea></form>
+                        <a class="btn btn-success execute" href="#">Execute</a>
+                        <script>initSparqlSlide("#code-textbox0")</script>
                     </div>
                 </div>
             </div>

@@ -24,3 +24,7 @@ Setup
 3.  Run `./setup_stardog.sh YOUR_STARDOG_ADMIN_PASSWORD` (depending on your setup you may need to run it as root) 
 4.  Run `./sparql-demo-load-stardog.sh YOUR_STARDOG_ADMIN_PASSWORD` (depending on your setup you may need to run it as root)
 5.  Navigation your browser to *index.html* (depends on your web server setup)
+
+License
+-------
+This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported ([CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US))
