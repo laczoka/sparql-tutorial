@@ -97,7 +97,11 @@
 	};
 
 	Connection.prototype.setEndpoint = function (endpoint) {
-		this.endpoint = endpoint;
+		if (endpoint.charAt(endpoint.length-1) != '/') {
+			this.endpoint = endpoint + '/';
+		} else {
+			this.endpoint = endpoint;
+		}
 	};
 
 	Connection.prototype.getEndpoint = function () {
@@ -285,8 +289,12 @@
 					console.log("Call on error");
 					console.log(textStatus);
 					console.log(errorThrown);
+					console.log(jqXHR.responseText);
 
-					callback({ 'message':'Error retrieving information from the Server.'});
+					callback({
+						'status': jqXHR.status,
+						'statusText' : jqXHR.statusCode,
+						'error': jqXHR.responseText});
 				}
 			});
 		};

@@ -78,8 +78,15 @@
         }
 
         function printTo(resultBindings) {
-            var resultHTML = printToHTMLTable(resultBindings);
-            $("#query-result").html(resultHTML);
+            if (resultBindings.error) {
+                $("#query-result").html("<div class='alert alert-error'> \
+                <button type='button' class='close' data-dismiss='alert'>&times;</button> \
+                        <strong>Error:</strong> "+resultBindings.error+" </div>");
+
+            } else {
+                var resultHTML = printToHTMLTable(resultBindings);
+                $("#query-result").html(resultHTML);
+            }
         }
 
         var query = function (Q, limit, offset, Rf) {
