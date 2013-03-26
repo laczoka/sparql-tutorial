@@ -90,6 +90,7 @@
         }
 
         var query = function (Q, limit, offset, Rf) {
+            $("#query-result").html("<div style='text-align: center'><img src='ajax-loader.gif'></div>");
             conn.query(DB, Q, null, limit, offset, Rf);
         }
 
