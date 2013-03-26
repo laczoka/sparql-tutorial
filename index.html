@@ -126,6 +126,7 @@
                 if (editor) {
                     editor.refresh();
                 }});
+            $(".clearresults").on("click", function (e) { $("#query-result").html(""); return false;})
         });
     </script>
 </head>
@@ -192,6 +193,7 @@ WHERE {
       }
                             </textarea></form>
                             <a class="btn btn-success execute" href="#">Execute</a>
+                            <a class="btn clearresults" href="#">Clear</a>
                             <script>initSparqlSlide("#code-textbox1")</script>
                         </div>
                     </div>
@@ -216,6 +218,7 @@ WHERE {
         ?product gr:name ?name. }
                             </textarea></form>
                             <a class="btn btn-success execute" href="#">Execute</a>
+                            <a class="btn clearresults" href="#">Clear</a>
                             <script>$(initSparqlSlide("#code-textbox2"));</script>
                         </div>
                     </div>
@@ -238,6 +241,7 @@ WHERE {
       }
                             </textarea></form>
                             <a class="btn btn-success execute" href="#">Execute</a>
+                            <a class="btn clearresults" href="#">Clear</a>
                             <script>initSparqlSlide("#code-textbox3")</script>
                         </div>
                     </div>
@@ -261,6 +265,7 @@ WHERE {
         }
                             </textarea></form>
                             <a class="btn btn-success execute" href="#">Execute</a>
+                            <a class="btn clearresults" href="#">Clear</a>
                             <script>initSparqlSlide("#code-textbox4")</script>
                         </div>
                     </div>
@@ -284,6 +289,7 @@ WHERE {
 }
                             </textarea></form>
                             <a class="btn btn-success execute" href="#">Execute</a>
+                            <a class="btn clearresults" href="#">Clear</a>
                             <script>initSparqlSlide("#code-textbox5")</script>
                         </div>
                     </div>
@@ -310,6 +316,7 @@ WHERE {
 }
                             </textarea></form>
                             <a class="btn btn-success execute" href="#">Execute</a>
+                            <a class="btn clearresults" href="#">Clear</a>
                             <script>initSparqlSlide("#code-textbox6")</script>
                         </div>
                     </div>
@@ -328,6 +335,7 @@ WHERE { ?s ?p ?o }
 LIMIT 10
                             </textarea></form>
                             <a class="btn btn-success execute" href="#">Execute</a>
+                            <a class="btn clearresults" href="#">Clear</a>
                             <script>initSparqlSlide("#code-textbox7")</script>
                         </div>
                     </div>
@@ -346,6 +354,7 @@ WHERE { ?s ?p ?o }
 LIMIT 10
                             </textarea></form>
                             <a class="btn btn-success execute" href="#">Execute</a>
+                            <a class="btn clearresults" href="#">Clear</a>
                             <script>initSparqlSlide("#code-textbox8")</script>
                         </div>
                     </div>
@@ -374,6 +383,7 @@ FILTER (?weightValue < 500)
 # in KGM (kg), are not considered
                             </textarea></form>
                             <a class="btn btn-success execute" href="#">Execute</a>
+                            <a class="btn clearresults" href="#">Clear</a>
                             <script>initSparqlSlide("#code-textbox9")</script>
                         </div>
                     </div>
@@ -407,6 +417,7 @@ FILTER (?weightValue < 500)
 # b) comment out the FILTER line to see that it realy works
                             </textarea></form>
                             <a class="btn btn-success execute" href="#">Execute</a>
+                            <a class="btn clearresults" href="#">Clear</a>
                             <script>initSparqlSlide("#code-textbox10")</script>
                         </div>
                     </div>
@@ -435,6 +446,7 @@ FILTER (?weightValue < 1.5) } }
 # Issue: now we get g and kg values mixed up
                             </textarea></form>
                             <a class="btn btn-success execute" href="#">Execute</a>
+                            <a class="btn clearresults" href="#">Clear</a>
                             <script>initSparqlSlide("#code-textbox11")</script>
                         </div>
                     </div>
@@ -463,6 +475,7 @@ FILTER (?weightValueKG < 1.5).
 BIND ( (?weightValueKG*1000) AS ?weightValue) } }
                             </textarea></form>
                             <a class="btn btn-success execute" href="#">Execute</a>
+                            <a class="btn clearresults" href="#">Clear</a>
                             <script>initSparqlSlide("#code-textbox12")</script>
                         </div>
                     </div>
