@@ -11,6 +11,9 @@
         .carousel-control {
             z-index: 9999999;
         }
+        .unavailable {
+            color:darkgray;
+        }
     </style>
     <!-- [if lt IE 9] -->
     <script src="js/jquery-1.9.1.min.js"></script>
@@ -26,7 +29,7 @@
     <script type="text/javascript">
         var conn = new Stardog.Connection();
         //conn.setEndpoint("http://stardog/");
-        conn.setEndpoint("/stardog/endpoint");
+        conn.setEndpoint("/stardog/endpoint/");
         conn.setReasoning("RDFS");
         conn.setCredentials("admin", "admin");
         var DB = "d1";
@@ -65,16 +68,18 @@
             var htmlTableBody = "<tbody>".concat(
                     _.map(bs,function (b) {
                         return "<tr>" + _.map(vars,
-function (v) {
-    return "<td>".concat(curie(b[v].value), "</td>")
-}).join("") + "</tr>"
-                    }).join(""), "</tbody>");
+                                                function (v) {
+                                                    return "<td>".concat((b[v] && b[v].value) ? curie(b[v].value) : "<span class='unavailable'>N/A</span>", "</td>")
+                                                }).join("") + "</tr>"
+                            }).join(""), "</tbody>");
+            var htmlTableFooter = "<tfoot><tr><td colspan='".concat(vars.length.toString(),"'>Returned ",(bs.length == 1) ? (((_.keys(bs[0])).length > 0) ? "1" : "0") : bs.length.toString(), " results.</td></tr></tfoot>");
 
-            return "<table class='table'>".concat(htmlTableHeader, htmlTableBody, "</table>");
+            return "<table class='table'>".concat(htmlTableHeader, htmlTableBody, htmlTableFooter, "</table>");
         }
 
         function printTo(resultBindings) {
-            $("#query-result").html(printToHTMLTable(resultBindings));
+            var resultHTML = printToHTMLTable(resultBindings);
+            $("#query-result").html(resultHTML);
         }
 
         var query = function (Q, limit, offset, Rf) {
