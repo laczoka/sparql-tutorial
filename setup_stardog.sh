@@ -15,3 +15,4 @@ sparqldemo
 
 EOF
 stardog-admin user grant -n sparqldemo -u admin -p $ADMINPASS -a read -o "db:$DB" --server "$SERVER"
+stardog-admin user grant -n sparqldemo -u admin -p $ADMINPASS -a read -o "metadata:$DB" --server "$SERVER"
